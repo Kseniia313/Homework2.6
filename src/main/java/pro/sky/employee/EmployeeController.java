@@ -16,7 +16,7 @@ public abstract class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping(path="/add")
+    @GetMapping(path = "/add")
     public Employee addEmployee(
             @RequestParam("firstName") String firstName,
             @RequestParam("lastName") String lastName) {
@@ -31,37 +31,35 @@ public abstract class EmployeeController {
         return employee;
     }
 
-    @GetMapping(path="/remove")
+    @GetMapping(path = "/remove")
     public Employee removeEmployee(
             @RequestParam("firstName") String firstName,
-            @RequestParam("lastName") String lastName)
-        {
-            try {
-                employeeService.removeEmployee(firstName, lastName);
-            } catch (EmployeeNotFoundException e) {
-                throw new RuntimeException();
-            }
-            Employee employee=new Employee(firstName, lastName);
-                    return employee;
+            @RequestParam("lastName") String lastName) {
+        try {
+            employeeService.removeEmployee(firstName, lastName);
+        } catch (EmployeeNotFoundException e) {
+            throw new RuntimeException();
         }
+        Employee employee = new Employee(firstName, lastName);
+        return employee;
+    }
 
-    @GetMapping(path="/find")
+    @GetMapping(path = "/find")
 
     public Employee findEmployee(
             @RequestParam("firstName") String firstName,
-            @RequestParam("lastName") String lastName)
-        {
-            try {
-                employeeService.findEmployee(firstName, lastName);
-            } catch (EmployeeNotFoundException e) {
-                throw new RuntimeException();
-            }
-            Employee employee = new Employee(firstName, lastName);
-            return employee;
-
+            @RequestParam("lastName") String lastName) {
+        try {
+            employeeService.findEmployee(firstName, lastName);
+        } catch (EmployeeNotFoundException e) {
+            throw new RuntimeException();
         }
+        Employee employee = new Employee(firstName, lastName);
+        return employee;
 
-    @GetMapping(path="/print")
+    }
+
+    @GetMapping(path = "/print")
     public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
     }

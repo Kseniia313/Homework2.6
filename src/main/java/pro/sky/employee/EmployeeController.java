@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/employee")
-public abstract class EmployeeController {
+public class EmployeeController {
     private final EmployeeService employeeService;
 
     public EmployeeController(EmployeeService employeeService) {

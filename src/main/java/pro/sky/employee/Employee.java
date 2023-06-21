@@ -24,7 +24,7 @@ public class Employee {
         if (this == employeer) return true;
         if (employeer == null || getClass() != employeer.getClass()) return false;
         Employee employee = (Employee) employeer;
-        return Objects.equals(firstName, employee.firstName)&&Objects.equals(lastName, employee.lastName);
+        return Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "firstName:" + firstName +"lasttName:"+ lastName;
+        return "firstName:" + firstName + "lasttName:" + lastName;
     }
 }
 
